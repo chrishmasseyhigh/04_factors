@@ -28,11 +28,11 @@ def instructions():
     return
 
 #checks input is a number more than zero
-def num_check(question, low):
+def num_check(question, low, high):
     valid = False
     while not valid:
         
-        error = "please enter a factor that is more than 1 and less or equal to 200 "
+        error = f"please enter a factor that is more than {low} and less or equal to {high}"
         error2= "please enter a factor that does not have decimal part / enter a number"
                                                                          
         try:
@@ -41,7 +41,7 @@ def num_check(question, low):
             response = int(input(question))
 
             # Checks number is more than zero
-            if response >= low:
+            if response >= low and response <= high:
                 return response
 
             # Outputs error if input is invalid
@@ -54,4 +54,5 @@ def num_check(question, low):
 
 # gets factors, returns a sorted list
 def get_factors(to_factor):
-    d
+    pass
+
