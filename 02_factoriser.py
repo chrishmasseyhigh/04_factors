@@ -10,12 +10,12 @@ def get_factors(to_factor):
 
     max_factor = round(math.sqrt(to_factor))
 
-    for item in range(1, max_factor+1):
+    for item in range(1, max_factor + 1):
         my_list.append(item)
 
     return my_list
 
-
+3
     
 
 
