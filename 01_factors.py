@@ -56,3 +56,35 @@ def num_check(question, low, high):
 def get_factors(to_factor):
     pass
 
+# Main routine goes here
+
+#Heading
+statement_generator("Bit calculator for Integers, Text & Images", "-")
+
+#Display instructions if user has not used the program before
+first_time = input("Press <enter> to see the instructions or any key to continue ")
+
+if first_time =="":
+    instructions()
+
+# Loop to alow putiple calculations
+keep_going = ""
+while keep_going == "":
+   
+
+    comment = ""
+
+    # ask user for number to be factored..
+    var_to_factor = num_check("Number? ")
+    if var_to_factor != 1:
+      factor_list = get_factors(var_to_factor) 
+    else:
+        factor_list = ""
+        comment = " One is unity, It only has one factor, 1 or itself"
+    
+    # comments for squares/ primes
+    if len(factor_list) == 2:
+        comment = " {} is a prime number.".format(var_to_factor)
+    elif len(factor_list) % 2 == 1:
+        comment = "{} is a perfect square".format(var_to_factor)
+    
