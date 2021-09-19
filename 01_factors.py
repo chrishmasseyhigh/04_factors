@@ -59,7 +59,7 @@ def get_factors(to_factor):
 # Main routine goes here
 
 #Heading
-statement_generator("Bit calculator for Integers, Text & Images", "-")
+statement_generator("Factors Calculator", "-")
 
 #Display instructions if user has not used the program before
 first_time = input("Press <enter> to see the instructions or any key to continue ")
@@ -67,7 +67,7 @@ first_time = input("Press <enter> to see the instructions or any key to continue
 if first_time =="":
     instructions()
 
-# Loop to alow putiple calculations
+# Loop to alow multiple calculations
 keep_going = ""
 while keep_going == "":
    
@@ -87,4 +87,26 @@ while keep_going == "":
         comment = " {} is a prime number.".format(var_to_factor)
     elif len(factor_list) % 2 == 1:
         comment = "{} is a perfect square".format(var_to_factor)
+    
+    # outputs factors and comment
+
+    # Generate heading
+    if var_to_factor == 1:
+        heading = "One is percial.."
+
+    else:
+        heading = "Factors of {}".format(var_to_factor)
+    
+    # utput factors and comment
+    statement_generator(heading, "*")
+    print()
+    print(factor_list)
+    print(comment)
+
+    print()
+    keep_going = input("Press <enter> to continue or any key to quit")
+    print()
+
+print()
+print("Thank you for using the factors calculator")
     
