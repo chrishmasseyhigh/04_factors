@@ -1,4 +1,8 @@
+import math 
+
+
 # functions go here
+
 
 #Put series of symbols at sart and end of text
 def statement_generator(text, decoration):
@@ -54,7 +58,33 @@ def num_check(question, low, high):
 
 # gets factors, returns a sorted list
 def get_factors(to_factor):
-    pass
+    if to_factor == 1:
+        return [1]
+
+    my_list = []
+    rnd_sqrt =  math.ceil(math.sqrt(to_factor))
+
+    # range excludes last number, so add +1
+    for num in range(1, rnd_sqrt + 1):
+        if to_factor % num == 0:
+            a_factor = to_factor // num
+            my_list.append(a_factor)
+            my_list.append(num)
+
+    my_list.sort()
+    
+    # the set only stores unique values
+    my_list = list(set(my_list))
+
+    return my_list
+
+def is_prime(factors):
+    # prime numbers only have 2 factors
+    return len(factors) == 2
+
+def is_perfect_square(factors):
+    # perfeect squares have odd numbers of factors.
+    return len(factors) % 2 != 0
 
 # Main routine goes here
 
@@ -75,16 +105,16 @@ while keep_going == "":
     comment = ""
 
     # ask user for number to be factored..
-    var_to_factor = num_check("Number? ")
+    var_to_factor = num_check("Number? ", 1, 200)
     if var_to_factor != 1:
-      factor_list = get_factors(var_to_factor) 
+        factor_list = get_factors(var_to_factor) 
     else:
         factor_list = ""
-        comment = " One is unity, It only has one factor, 1 or itself"
+        comment = "One is unity, It only has one factor, 1 or itself"
     
     # comments for squares/ primes
     if len(factor_list) == 2:
-        comment = " {} is a prime number.".format(var_to_factor)
+        comment = "{} is a prime number.".format(var_to_factor)
     elif len(factor_list) % 2 == 1:
         comment = "{} is a perfect square".format(var_to_factor)
     
@@ -92,7 +122,7 @@ while keep_going == "":
 
     # Generate heading
     if var_to_factor == 1:
-        heading = "One is percial.."
+        heading = "One is special.."
 
     else:
         heading = "Factors of {}".format(var_to_factor)
