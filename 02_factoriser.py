@@ -28,7 +28,7 @@ def is_prime(factors):
     return len(factors) == 2
 
 def is_perfect_square(factors):
-    # perfeect squares have odd numbers of factors
+    # perfeect squares have odd numbers of factors.
     return len(factors) % 2 != 0
 
 factors = get_factors(26)
