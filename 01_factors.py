@@ -110,7 +110,7 @@ while keep_going == "":
         factor_list = get_factors(var_to_factor) 
     else:
         factor_list = ""
-        comment = "One is unity, It only has one factor, 1 or itself"
+        comment = "One is special, it is UNITY (only has one factor)"
     
     # comments for squares/ primes
     if len(factor_list) == 2:
